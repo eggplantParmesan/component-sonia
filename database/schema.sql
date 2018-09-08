@@ -7,9 +7,11 @@
     CREATE TABLE products (
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         productId INT,
-        productName varchar(255),
-        productDescription varchar (255),
-        color varchar (255),
+        productName varchar (500),
+        productDescription varchar (500),
+        color varchar (500),
         price decimal(6,2) NOT NULL,
+        imageURL varchar(500)
        
     );
+

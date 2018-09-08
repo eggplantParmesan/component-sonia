@@ -1,35 +1,52 @@
-const mysql = require('mysql');
+let mysql = require('mysql');
+var faker = require('faker');
 
 
-const connection = mysql.createConnection({
+let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+    password: 'password',
     database: 'slideShowData'
 });
 
 connection.connect(function (err) {
     if (err) {
-        console.log('DB NOT connected!')
+        console.log(err)
     } else {
         console.log('DB connected!')
     }
 });
 
+const DATA_NUMBER = 100;
+const createTable = function () {
 
-// getting product data from db
-function getDescription(callback) {
+    for (var i = 0; i < DATA_NUMBER; i++) {
 
-    connection.query('SELECT * from products', function (error, results) {
-        if (err) {
-            console.log('Error Getting Data of Table')
-        } else {
-            callback(results)
-        }
-    });
+        var randomProductId = faker.random.number();
+        var randomName = faker.commerce.productName();
+        var randomDescription = faker.lorem.sentences();
+        var randomColor = faker.commerce.color();
+        var randomPrice = faker.commerce.price();
+        var randomImageURL = faker.image.imageUrl();
+
+        let queryString = `INSERT INTO products (productId, productName, productDescription, color, price, imageURL) \
+                            VALUES (${randomProductId}, "${randomName}", "${randomDescription}", "${randomColor}", "${randomPrice}", "${randomImageURL}")`
+        connection.query(queryString);
+    }
 }
 
 
-// ToDo posting user information to users table per click on item
+createTable();
 
+const getAllData = function (callback) {
+    queryString = 'SELECT * FROM products';
+    connection.query(queryString, function (err, data) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, result)
+        }
+    })
+}
 
-module.exports.getDescription = getDescription;
+module.exports.getAllData = getAllData;
