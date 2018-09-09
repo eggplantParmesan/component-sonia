@@ -1,18 +1,20 @@
 import React from 'react';
 import $ from 'jquery';
+import './App.css';
 // import { getAllData } from '../../database/index.js';
 
 class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			data: []
+			data: [ 'hi' ]
 		};
 	}
 
 	componentDidMount() {}
 
 	getData() {
+		console.log(this.state.data);
 		$.ajax({
 			url: 'http://localhost:3002/carousel',
 			method: 'GET',
@@ -35,15 +37,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Hiiiiiii</h1>
-				<input type="text" />
-				<button
-					onClick={() => {
-						this.getData();
-					}}
-				>
-					Submit
-				</button>
+				<h3>Customers who viewed this item also viewed</h3>
+				<div className="carousel-container">
+					<button className="carousel-nav carousel-left-nav" />
+					<div className="carousel-viewport" />
+					<button className="carousel-nav carousel-right-nav" />
+				</div>
 			</div>
 		);
 	}
