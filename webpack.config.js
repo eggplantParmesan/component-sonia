@@ -10,9 +10,23 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.jsx?/,
-            include: SRC_DIR,
-            use: ['babel-loader'],
-        }]
+                test: /\.jsx?/,
+                include: SRC_DIR,
+                use: ['babel-loader'],
+            },
+            {
+                test: /\.css$/,
+                loader: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        }
+                    }
+                ]
+
+            }
+        ]
     }
 };
