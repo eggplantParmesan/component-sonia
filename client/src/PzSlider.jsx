@@ -1,21 +1,33 @@
 import React from 'react';
-
-// var temp = function(props) {
-// 	console.log(props);
-// };
+import Slider from 'react-slick';
+import PzElement from './PzElement.jsx';
 
 const PzSlider = function(props) {
-	return <div>{props.items.map((elem) => elem.color + '/ ')}</div>;
+	// carousel set-up
+
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 6,
+		slidesToScroll: 5
+	};
+	return (
+		<div>
+			<div>
+				<h2> Customers who bought this item also bought </h2>
+				<Slider {...settings}>
+					{props.items.map((elem) => (
+						<div>
+							<PzElement element={elem} />
+						</div>
+					))}
+				</Slider>
+			</div>
+		</div>
+	);
 };
 
-// class PzSlider extends React.Component {
-// 	testData(props) {
-// 		console.log(this.props.items);
-// 	}
-
-// 	render() {
-// 		return <div>{this.testData()}</div>;
-// 	}
-// }
-
 export default PzSlider;
+
+// {props.items.map((elem) => elem.color + '/ ')}

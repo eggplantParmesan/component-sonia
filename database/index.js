@@ -27,7 +27,7 @@ const createTable = function () {
         var randomDescription = faker.lorem.sentences();
         var randomColor = faker.commerce.color();
         var randomPrice = faker.commerce.price();
-        var randomImageURL = faker.image.imageUrl();
+        var randomImageURL = faker.random.image();
 
         let queryString = `INSERT INTO products (productId, productName, productDescription, color, price, imageURL) \
                             VALUES (${randomProductId}, "${randomName}", "${randomDescription}", "${randomColor}", "${randomPrice}", "${randomImageURL}")`
