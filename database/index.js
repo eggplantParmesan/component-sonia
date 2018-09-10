@@ -36,7 +36,7 @@ const createTable = function () {
 }
 
 
-createTable();
+// createTable();
 
 const getAllData = function (callback) {
     queryString = 'SELECT * FROM products';
@@ -49,4 +49,20 @@ const getAllData = function (callback) {
     })
 }
 
+// temporary function for testing purposes
+
+const getTen = function (callback) {
+    queryString = 'SELECT * FROM products LIMIT 10';
+    connection.query(queryString, function (err, data) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, data)
+        }
+    })
+}
+
+
+
 module.exports.getAllData = getAllData;
+module.exports.getTen = getTen;
