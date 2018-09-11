@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
+
 import PzSlider from './PzSlider.jsx';
 // import React from 'react';
 

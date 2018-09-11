@@ -18,6 +18,7 @@ connection.connect(function (err) {
 });
 
 const DATA_NUMBER = 100;
+
 const createTable = function () {
 
     for (var i = 0; i < DATA_NUMBER; i++) {
@@ -28,15 +29,18 @@ const createTable = function () {
         var randomColor = faker.commerce.color();
         var randomPrice = faker.commerce.price();
         var randomImageURL = faker.random.image();
+        var randomRating = Math.floor((Math.random() * 5) + 1);
+        var randomReviewNumber = Math.floor((Math.random() * 1000) + 36);
+        var randomBoolean = faker.random.boolean();
 
-        let queryString = `INSERT INTO products (productId, productName, productDescription, color, price, imageURL) \
-                            VALUES (${randomProductId}, "${randomName}", "${randomDescription}", "${randomColor}", "${randomPrice}", "${randomImageURL}")`
+        let queryString = `INSERT INTO products (productId, productName, productDescription, color, price, imageURL, rating, reviewNumber, isPrime)
+                            VALUES (${randomProductId}, "${randomName}", "${randomDescription}", "${randomColor}", "${randomPrice}", "${randomImageURL}", ${randomRating}, ${randomReviewNumber}, ${randomBoolean})`
         connection.query(queryString);
     }
 }
 
-
 // createTable();
+
 
 const getAllData = function (callback) {
     queryString = 'SELECT * FROM products';
