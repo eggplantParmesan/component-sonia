@@ -15,11 +15,13 @@ const PzSlider = function(props) {
 	return (
 		<div>
 			<h3>Customers who bought this item also bought</h3>
-			{props.items.map((elem) => (
-				<div>
-					<PzElement element={elem} />
-				</div>
-			))}
+			<div class="carousel-outer">
+				{props.items.map((elem) => (
+					<div class="carousel">
+						<PzElement element={elem} />
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

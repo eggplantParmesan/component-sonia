@@ -31,8 +31,8 @@ const isPrime = function(num) {
 	if (num === 1) {
 		return (
 			<img
-				width="40"
-				height="40"
+				width="60"
+				height="60"
 				src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/052018/untitled-1_282.png?zBgfG0XEfdsPUq33GRuhu6udfY3Yu_rs&itok=39OQ7JCF"
 			/>
 		);
@@ -44,14 +44,16 @@ const isPrime = function(num) {
 const PzElement = function(props) {
 	return (
 		// temporarily using inline sizing to test
-		<h5>
-			<img width="160" height="160" src={props.element.imageURL} />
-			<br />
-			{props.element.productDescription}
-			<br /> {starMaker(props.element.rating)} {props.element.reviewNumber}
-			<br />
-			${props.element.price} {isPrime(props.element.isPrime)}
-		</h5>
+		<div>
+			<span>
+				<img width="160" height="160" src={props.element.imageURL} />
+				<br />
+				{props.element.productDescription}
+				<br /> {starMaker(props.element.rating)} {props.element.reviewNumber}
+				<br />
+				${props.element.price} {isPrime(props.element.isPrime)}
+			</span>
+		</div>
 	);
 };
 
