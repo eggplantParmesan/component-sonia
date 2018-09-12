@@ -1,46 +1,22 @@
 import React from 'react';
-import Slider from 'react-slick';
 import PzElement from './PzElement.jsx';
+import styles from './main.css';
+console.log(styles);
 
 const PzSlider = function(props) {
-	// 	// carousel set-up
-
-	// 	const settings = {
-	// 		dots: true,
-	// 		infinite: true,
-	// 		speed: 500,
-	// 		slidesToShow: 6,
-	// 		slidesToScroll: 5
-	// 	};
 	return (
 		<div>
-			<h3>Customers who bought this item also bought</h3>
-			<div class="carousel-outer">
-				{props.items.map((elem) => (
-					<div class="carousel">
-						<PzElement element={elem} />
+			<h3 className={styles.container}>Customers who bought this item also bought</h3>
+			<div>
+				{props.items.map((elem, index) => (
+					<div className={styles.menu}>
+						<PzElement key={index} element={elem} />
 					</div>
 				))}
 			</div>
 		</div>
 	);
 };
+// r246 g190 b66
 
 export default PzSlider;
-
-// {props.items.map((elem) => elem.color + '/ ')}
-
-{
-	/* <div>
-			<div>
-				<h3> Customers who bought this item also bought </h3>
-				<Slider {...settings}>
-					{props.items.map((elem) => (
-						<div>
-							<PzElement element={elem} />
-						</div>
-					))}
-				</Slider>
-			</div>
-		</div> */
-}

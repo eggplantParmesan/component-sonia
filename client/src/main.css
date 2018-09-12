@@ -1,0 +1,64 @@
+:local(.container) {
+    margin: 20px;
+    color: rgb(51, 51, 51);
+    /* de 38  102 185 */
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+:local(.text) {
+    font-family: "Amazon Ember", Arial, sans-serif;
+    color: #0066c0;
+    font-size: 13px;
+    line-height: 19px;
+    width: 160px
+}
+
+:local(.text:hover) {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #c45500;
+
+}
+
+:local(.review) {
+    color: #0066c0;
+}
+
+:local(.review:hover) {
+    cursor: pointer;
+    color: #c45500;
+}
+
+:local(.price) {
+    color: #B12704 !important;
+}
+
+:local(.price:hover) {
+    cursor: pointer;
+}
+
+:local(.star) {
+
+    display: inline;
+}
+
+:local(.star:hover) {
+    cursor: pointer;
+}
+
+:local(.element:hover) {
+    cursor: pointer;
+}
+
+
+
+:local(.menu) {
+    display: table;
+    float: left;
+    margin: 1%;
+}
+
+:local(.menu>div) {
+    display: table-row;
+
+}
