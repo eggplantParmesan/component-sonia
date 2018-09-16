@@ -1,19 +1,20 @@
 import React from 'react';
 import Enzyme, { shallow, render, mount } from 'enzyme';
-import PzSlider from './PzSlider.jsx';
+import RelatedItems from '../SlideShow.jsx';
 
-describe('PzSlider', () => {
+
+describe('RelatedItems', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<PzSlider debug />);
+    const component = shallow(<RelatedItems debug />);
     expect(component).toMatchSnapshot();
   });
   it('should render correctly with no props', () => {
-    const component = shallow(<PzSlider />);
+    const component = shallow(<RelatedItems />);  
     expect(component).toMatchSnapshot();
   });
-  it('renders PzElement component', () => {
+  it('renders PzSlider component', () => {
     const wrapper = shallow(
-      <PzSlider />,
+      <RelatedItems />,
     );
     expect(wrapper).toMatchSnapshot();
   });

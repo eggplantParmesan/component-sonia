@@ -11,13 +11,20 @@
    right: 0%;
    left:3%;
 }
+:local(.child){
+    width: 160px; 
+    
+   
+}
 
 :local(.text) {
     font-family: "Amazon Ember", Arial, sans-serif;
     color: #0066c0;
     font-size: 13px;
     line-height: 19px;
-    width: 160px
+    width: 160px;
+    
+    
 }
 
 :local(.text:hover) {

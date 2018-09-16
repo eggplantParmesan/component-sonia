@@ -47,9 +47,9 @@ const createTable = function () {
 // createTable();
 
 const getRelatedItems = () => {
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 100; i += 1) {
     const relatedItems = ((Math.random() * 38) + 6);
-    for (let j = 0; j < relatedItems; j++) {
+    for (let j = 0; j < relatedItems; j += 1) {
       const relatedTo = ((Math.random() * 100) + 1);
       connection.query(`INSERT INTO similarProducts (productId, relatedItemId) values (${i}, ${relatedTo})`);
     }

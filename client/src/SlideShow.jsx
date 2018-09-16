@@ -16,7 +16,7 @@ class RelatedItems extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:4043/products')
+    fetch(`http://localhost:${process.env.PORT || 4043}/products`)
       .then(response => response.json())
       .then(({ data }) => {
         const arr = [];
@@ -35,9 +35,11 @@ class RelatedItems extends Component {
   }
 
   pageClickN() {
-    const total = this.state.products.length;
+    const { products } = this.state;
+    let { pageNum } = this.state;
+    const total = products.length;
     let numOfItem = 6;
-    let pageNum = this.state.pageNum + 1;
+    pageNum += 1;
     let startNum = pageNum * 6;
 
     if (startNum > total) {
@@ -48,7 +50,7 @@ class RelatedItems extends Component {
     }
     const arr = [];
     for (let i = startNum; i < startNum + numOfItem; i += 1) {
-      arr.push(this.state.products[i]);
+      arr.push(products[i]);
     }
     this.setState({
       pageProducts: arr,
@@ -70,7 +72,6 @@ class RelatedItems extends Component {
     if (startNum > total) {
       pageNum = 0;
       startNum = 0;
-      // endNum = 5;
     } else if (startNum + numOfItem > total) {
       numOfItem = total % numOfItem;
     }
@@ -86,14 +87,18 @@ class RelatedItems extends Component {
 
 
   render() {
+    const { products, pageProducts, pageNum } = this.state;
     return (
       <div>
-        <span className={styles.page}>{`Page `}{this.state.pageNum + 1}{` of `}
-          {(this.state.products.length - this.state.products.length % 6) / 6 + 1}
+        <span className={styles.page}>
+          {'Page '}
+          {pageNum + 1}
+          {' of '}
+          {(products.length - (products.length % 6)) / 6 + 1}
         </span>
         <button type="submit" className={styles.previous} onClick={() => { this.pageClickP(); }}>&#8249;</button>
-        <PzSlider items={this.state.pageProducts} />
-        <button type="submit" className={styles.next} onClick={() => { this.pageClickN(); }}>&#8250;</button>
+        {products.length > 0 ? <PzSlider items={pageProducts} /> : 'Loading...'}
+        <button type="submit" className={styles.next} onClick={() => { this.pageClickN(); }}>&#8250;</button> 
       </div>
     );
   }
