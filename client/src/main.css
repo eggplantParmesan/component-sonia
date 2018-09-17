@@ -4,17 +4,13 @@
    
 }
 :local(.main){
-    
     overflow: hidden;
     position: absolute;
-   
-   right: 0%;
-   left:3%;
+    right: 0%;
+    left:3%;
 }
 :local(.child){
-    width: 160px; 
-    
-   
+    width: 160px;  
 }
 
 :local(.text) {
@@ -22,17 +18,15 @@
     color: #0066c0;
     font-size: 13px;
     line-height: 19px;
-    width: 160px;
-    
-    
+    width: 160px;   
 }
 
 :local(.text:hover) {
     text-decoration: underline;
     cursor: pointer;
     color: #c45500;
-
 }
+  
 
 :local(.review) {
     color: #0066c0;
@@ -49,7 +43,6 @@
     color: #B12704 !important;
     font-family: "Amazon Ember", Arial, sans-serif;
     font-size: 13px;
-
 }
 
 :local(.price:hover) {
@@ -57,7 +50,6 @@
 }
 
 :local(.star) {
-
     display: inline;
 }
 
@@ -76,8 +68,7 @@
     margin: 2%;
     overflow-x: scroll;
     overflow-y: hidden;
-    white-space: nowrap;
-    
+    white-space: nowrap; 
 }
 
 :local(button) {
@@ -102,23 +93,20 @@
 }
 
 :local(button:hover) {
-
     background-color: #e7e9ec;
     cursor: pointer;
 }
 :local(.previous){
     position: absolute;
-    top: calc(23% ); 
+    top: calc(31% ); 
     z-index: 1;
     height: 36px;
     width: 36px;
-    left: 1%
-    
-    
+    left: 1%      
 }
 :local(.next){
     position: absolute;
-    top: calc(23% );
+    top: calc(31% );
     z-index: 1;
     height: 36px;
     width: 36px;

@@ -11,7 +11,7 @@
         color varchar (500),
         price decimal(6,2) NOT NULL,
         imageURL varchar(500),
-        rating TINYINT (1),
+        rating float,
         reviewNumber INT,
         isPrime BOOLEAN
        
