@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 const express = require('express');
 
 const app = express();
@@ -12,15 +13,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.get('/carousel', (req, res) => {
-//   controllers.getAllData((err, data) => {
-//     if (err) {
-//       res.status(503).send(err);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// });
 
 app.get('/products', (req, res) => {
   controllers.getRelated(req.query.id, (err, results) => {
