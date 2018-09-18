@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PzSlider renders PzElement component 1`] = `
+<div>
+  <h3>
+    Customers who bought this item also bought
+  </h3>
+  <div>
+    <div>
+      <PzElement
+        element={
+          Object {
+            "color": "yellow",
+            "id": 4,
+            "imageURL": "https://s3-us-west-1.amazonaws.com/pictures-hrsf/download+(7).jpeg",
+            "isPrime": 1,
+            "price": 231,
+            "productDescription": "Enim odio vitae. Vel dignissimos omnis cum aut quibusdam.",
+            "productName": "Sleek Fresh Tuna",
+            "rating": 4,
+            "reviewNumber": 186,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PzSlider should render correctly in "debug" mode 1`] = `
+<div>
+  <h3>
+    Customers who bought this item also bought
+  </h3>
+  <div>
+    <div>
+      <PzElement
+        element={
+          Object {
+            "color": "yellow",
+            "id": 4,
+            "imageURL": "https://s3-us-west-1.amazonaws.com/pictures-hrsf/download+(7).jpeg",
+            "isPrime": 1,
+            "price": 231,
+            "productDescription": "Enim odio vitae. Vel dignissimos omnis cum aut quibusdam.",
+            "productName": "Sleek Fresh Tuna",
+            "rating": 4,
+            "reviewNumber": 186,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PzSlider should render correctly with no props 1`] = `
+<div>
+  <h3>
+    Customers who bought this item also bought
+  </h3>
+  <div>
+    <div>
+      <PzElement
+        element={
+          Object {
+            "color": "yellow",
+            "id": 4,
+            "imageURL": "https://s3-us-west-1.amazonaws.com/pictures-hrsf/download+(7).jpeg",
+            "isPrime": 1,
+            "price": 231,
+            "productDescription": "Enim odio vitae. Vel dignissimos omnis cum aut quibusdam.",
+            "productName": "Sleek Fresh Tuna",
+            "rating": 4,
+            "reviewNumber": 186,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
