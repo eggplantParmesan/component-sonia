@@ -5,7 +5,7 @@ const faker = require('faker');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password', // process.env.PASSWORD
+  password: process.env.PASSWORD,
   database: 'slideShowData',
 });
 
