@@ -16,7 +16,8 @@ class RelatedItems extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:${process.env.PORT || 4043}/products`)
+    const id = window.location.href.match(/(\?|&)id=(\d\d?\d?\d?\d?\d?\d?\d?)/);
+    fetch(`http://localhost:${process.env.PORT || 4043}/products/?id=${id[2]}`)
       .then(response => response.json())
       .then(({ data }) => {
         const arr = [];

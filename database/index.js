@@ -65,9 +65,9 @@ const getRelatedItems = () => {
 // getRelatedItems();
 
 // chose a random id
-const id = 15;
+// const id = 15;
 
-const getRelated = (callback) => {
+const getRelated = (id, callback) => {
   const queryString = `select * from products where id in (select relatedItemId from similarProducts where productId=${id})`;
   connection.query(queryString, (err, data) => {
     if (err) {
