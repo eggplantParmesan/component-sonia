@@ -40,13 +40,13 @@ const isPrime = (booleanNum) => {
   }
 };
 
-//= =============================================
+// =============================================
 
 // function shortens product discription:
 
 const lessWord = str => ((str.length > 50) ? str.split('').slice(0, 50).join('') : str);
 
-//= =============================================
+// =============================================
 
 
 const PzElement = props => (

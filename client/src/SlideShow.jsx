@@ -3,8 +3,6 @@ import fetch from 'node-fetch';
 import PzSlider from './PzSlider.jsx';
 import styles from './main.css';
 
-// import React from 'react';
-
 class RelatedItems extends Component {
   constructor(props) {
     super(props);
@@ -20,16 +18,16 @@ class RelatedItems extends Component {
     fetch(`http://localhost:${process.env.PORT || 4043}/products/?id=${id[2]}`)
       .then(response => response.json())
       .then(({ data }) => {
-        const arr = [];
+        const listOfItems = [];
         let numOfItem = 6;
         if (data.length < 6) { numOfItem = data.length; }
         for (let i = 0; i < numOfItem; i += 1) {
-          arr.push(data[i]);
+          listOfItems.push(data[i]);
         }
 
         this.setState({
           products: data,
-          pageProducts: arr,
+          pageProducts: listOfItems,
         });
       })
       .catch(err => console.log(err));
@@ -49,12 +47,12 @@ class RelatedItems extends Component {
     } else if (startNum + numOfItem > total) {
       numOfItem = total % numOfItem;
     }
-    const arr = [];
+    const listOfItems = [];
     for (let i = startNum; i < startNum + numOfItem; i += 1) {
-      arr.push(products[i]);
+      listOfItems.push(products[i]);
     }
     this.setState({
-      pageProducts: arr,
+      pageProducts: listOfItems,
       pageNum,
     });
   }
@@ -76,12 +74,12 @@ class RelatedItems extends Component {
     } else if (startNum + numOfItem > total) {
       numOfItem = total % numOfItem;
     }
-    const arr = [];
+    const listOfItems = [];
     for (let i = startNum; i < startNum + numOfItem; i += 1) {
-      arr.push(products[i]);
+      listOfItems.push(products[i]);
     }
     this.setState({
-      pageProducts: arr,
+      pageProducts: listOfItems,
       pageNum,
     });
   }

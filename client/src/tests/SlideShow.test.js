@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, render, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import RelatedItems from '../SlideShow.jsx';
 
 
@@ -9,7 +9,7 @@ describe('RelatedItems', () => {
     expect(component).toMatchSnapshot();
   });
   it('should render correctly with no props', () => {
-    const component = shallow(<RelatedItems />);  
+    const component = shallow(<RelatedItems />);
     expect(component).toMatchSnapshot();
   });
   it('renders PzSlider component', () => {

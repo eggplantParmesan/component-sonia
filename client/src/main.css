@@ -72,24 +72,17 @@
 }
 
 :local(button) {
-    text-decoration: none;
     display: block;
     padding: 15px;
     border-radius: 2px;
     border:1px solid rgb(168,171, 176);
     line-height: 0;
-    height: 5vh;
-    width: 3vw;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset;
     background-color: rgb(241, 243, 245);
     text-align: center;
     box-sizing: border-box;
     margin: 0;
     font-size: 27px;
-    letter-spacing: -4px;
-    display: block;
-    list-style-type: decimal;
-
 }
 
 :local(button:hover) {

@@ -10,7 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "test": "jest --coverage",
+    "test": "jest",
     "lint": "eslint ./"
   },
   "jest": {
@@ -40,7 +40,8 @@
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "synchronize": "^2.0.0",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "yarn": "^1.9.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
