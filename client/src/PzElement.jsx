@@ -10,20 +10,20 @@ const starMaker = (numOfStars) => {
   if (numOfStars % 1 === 0) {
     const numOfDimStars = 5 - numOfStars;
     for (let i = 0; i < numOfStars; i += 1) {
-      litStars.push(<img alt="lit star" width="18" height="18" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/fullStar.png" />);
+      litStars.push(<img alt="lit star" className={styles.starInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/fullStar.png" />);
     }
     for (let i = 0; i < numOfDimStars; i += 1) {
-      dimStars.push(<img alt="dim star" width="18" height="18" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/emptyStar.png" />);
+      dimStars.push(<img alt="dim star" className={styles.starInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/emptyStar.png" />);
     }
     result = litStars.concat(dimStars);
   } else {
     const numOfDimStars = 5 - Math.ceil(numOfStars);
-    const halfStars = [<img alt="half star" width="18" height="18" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/halfStar+(1).png" />];
+    const halfStars = [<img alt="half star" className={styles.starInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/halfStar+(1).png" />];
     for (let i = 0; i < Math.floor(numOfStars); i += 1) {
-      litStars.push(<img alt="lit star" width="18" height="18" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/fullStar.png" />);
+      litStars.push(<img alt="lit star" className={styles.starInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/fullStar.png" />);
     }
     for (let i = 0; i < numOfDimStars; i += 1) {
-      dimStars.push(<img alt="dim star" width="18" height="18" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/emptyStar.png" />);
+      dimStars.push(<img alt="dim star" className={styles.starInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/emptyStar.png" />);
     }
     result = litStars.concat(halfStars, dimStars);
   }
@@ -36,7 +36,7 @@ const starMaker = (numOfStars) => {
 
 const isPrime = (booleanNum) => {
   if (booleanNum === 1) {
-    return <img alt="isPrime" src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/41636675_353124462093841_6086416954233454592_n.png" width="54" height="15" />;
+    return <img alt="isPrime" className={styles.primeInd} src="https://s3-us-west-1.amazonaws.com/pictures-hrsf/41636675_353124462093841_6086416954233454592_n.png" width="54" height="15" />;
   }
 };
 
@@ -57,18 +57,18 @@ const PzElement = props => (
       {'...'}
     </div>
     <div className={styles.star}>
-      {starMaker(props.element.rating)}
+      <span>{starMaker(props.element.rating)}</span>
       {' '}
       <span className={styles.review}>
-      {props.element.reviewNumber}
+        {props.element.reviewNumber}
       </span>
     </div>
     <div>
       <span className={styles.price}>
-$
-{props.element.price}
-.00
-</span>
+      $
+        {props.element.price}
+      .00
+      </span>
       <span>{isPrime(props.element.isPrime)}</span>
     </div>
   </div>

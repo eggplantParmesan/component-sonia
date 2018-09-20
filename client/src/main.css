@@ -6,6 +6,8 @@
 :local(.title) {
     color: rgb(51, 51, 51);  
     padding: 1vmin;
+    font-size: 2.63vmin;
+
 }
 
 :local(.main) {
@@ -48,10 +50,15 @@
 :local(.price:hover) {
     cursor: pointer;
 }
+:local(.indStar){
+    width: 1px;
+    height: 1px;
+}
 
 :local(.star:hover) {
     cursor: pointer;
 }
+
 :local(.element) {
     width: 20vmin;
     height: 20vmin;
@@ -92,4 +99,12 @@
     padding-right: 3vmin;
     font-size: 1.75vmin;
     line-height: 2.75vmin;
+}
+:local(.primeInd){
+    width: 6vmin;
+    height:2vmin;
+}
+:local(.starInd){
+    width: 3vmin;
+    height:3vmin;
 }
