@@ -20,7 +20,7 @@
     color: #0066c0;
     font-size: 1.75vmin;
     line-height: 2.75vmin;
-    width: 16vmin;   
+    width: 19vmin;   
 }
 
 :local(.text:hover) {
@@ -77,7 +77,7 @@
     vertical-align: middle;
 }
 
-:local(button:hover) {
+:local(.button:hover) {
     background-color: #e7e9ec;
     cursor: pointer;
 }
