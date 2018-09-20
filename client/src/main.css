@@ -1,20 +1,24 @@
+:local(.appContainer) {
+    font-family: "Amazon Ember", Arial, sans-serif; 
+    padding: 1vmin;  
+}
+
 :local(.title) {
-    color: rgb(51, 51, 51);
-    font-family: "Amazon Ember", Arial, sans-serif;
-   
+    color: rgb(51, 51, 51);  
 }
-:local(.main){
+
+:local(.main) {
     overflow: hidden;
-    position: absolute;
-    right: 0%;
-    left:3%;
 }
-:local(.child){
-    width: 160px;  
+
+:local(.child) {
+    width: 6.25 vmin;  
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+
 }
 
 :local(.text) {
-    font-family: "Amazon Ember", Arial, sans-serif;
     color: #0066c0;
     font-size: 13px;
     line-height: 19px;
@@ -26,11 +30,9 @@
     cursor: pointer;
     color: #c45500;
 }
-  
 
 :local(.review) {
     color: #0066c0;
-    font-family: "Amazon Ember", Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -41,16 +43,11 @@
 
 :local(.price) {
     color: #B12704 !important;
-    font-family: "Amazon Ember", Arial, sans-serif;
     font-size: 13px;
 }
 
 :local(.price:hover) {
     cursor: pointer;
-}
-
-:local(.star) {
-    display: inline;
 }
 
 :local(.star:hover) {
@@ -61,56 +58,35 @@
     cursor: pointer;
 }
 
-
-
 :local(.menu) {
-    display: inline-block;
-    margin: 2%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    align-content: center;
 }
 
 :local(button) {
-    display: block;
-    padding: 15px;
+    width: 9vmin;
+    height: 9vmin;
     border-radius: 2px;
     border:1px solid rgb(168,171, 176);
-    line-height: 0;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset;
     background-color: rgb(241, 243, 245);
+    font-size: 7vmin; 
     text-align: center;
-    box-sizing: border-box;
-    margin: 0;
-    font-size: 27px;
+    vertical-align: middle;
 }
 
 :local(button:hover) {
     background-color: #e7e9ec;
     cursor: pointer;
 }
-:local(.previous){
-    position: absolute;
-    top: calc(31% ); 
-    z-index: 1;
-    height: 36px;
-    width: 36px;
-    left: 1%      
-}
-:local(.next){
-    position: absolute;
-    top: calc(31% );
-    z-index: 1;
-    height: 36px;
-    width: 36px;
-    float: right;
-    right: 1%
-}
+
 :local(.page){
     float:right;
-    font-family: "Amazon Ember", Arial, sans-serif;
+    padding-right: 3vmin;
     font-size: 13px!important;
     line-height: 19px!important;
 }
-
-

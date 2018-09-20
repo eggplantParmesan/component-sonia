@@ -14,23 +14,25 @@ class RelatedItems extends Component {
   }
 
   componentDidMount() {
-    const id = window.location.href.match(/(\?|&)id=(\d\d?\d?\d?\d?\d?\d?\d?)/);
-    fetch(`http://localhost:${process.env.PORT || 4043}/products/?id=${id[2]}`)
-      .then(response => response.json())
-      .then(({ data }) => {
-        const listOfItems = [];
-        let numOfItem = 6;
-        if (data.length < 6) { numOfItem = data.length; }
-        for (let i = 0; i < numOfItem; i += 1) {
-          listOfItems.push(data[i]);
-        }
+    const id = window.location.search.replace(/\?id=/, '');
+    if (id) {
+      fetch(`http://localhost:${process.env.PORT || 4043}/products/?id=${id}`)
+        .then(response => response.json())
+        .then(({ data }) => {
+          const listOfItems = [];
+          let numOfItem = 6;
+          if (data.length < 6) { numOfItem = data.length; }
+          for (let i = 0; i < numOfItem; i += 1) {
+            listOfItems.push(data[i]);
+          }
 
-        this.setState({
-          products: data,
-          pageProducts: listOfItems,
-        });
-      })
-      .catch(err => console.log(err));
+          this.setState({
+            products: data,
+            pageProducts: listOfItems,
+          });
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   pageClickN() {
@@ -95,9 +97,9 @@ class RelatedItems extends Component {
           {' of '}
           {(products.length - (products.length % 6)) / 6 + 1}
         </span>
-        <button type="submit" className={styles.previous} onClick={() => { this.pageClickP(); }}>&#8249;</button>
-        {products.length > 0 ? <PzSlider items={pageProducts} /> : 'Loading...'}
-        <button type="submit" className={styles.next} onClick={() => { this.pageClickN(); }}>&#8250;</button> 
+        <div>
+          {products.length > 0 ? <PzSlider  prev={this.pageClickP.bind(this)} next={this.pageClickN.bind(this)} items={pageProducts} /> : 'Loading...'}
+        </div>
       </div>
     );
   }

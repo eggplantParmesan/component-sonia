@@ -7,17 +7,21 @@ import styles from './main.css';
 const PzSlider = (props) => {
   PzSlider.propTypes = {
     items: PropTypes.array.isRequired,
+    prev: PropTypes.func.isRequired,
+    next: PropTypes.func.isRequired,
   };
-  const { items } = props;
+  const { items, prev, next } = props;
   return (
     <div>
       <h3 className={styles.title}>Customers who bought this item also bought</h3>
       <div className={styles.main}>
-        {items.map(elem => (
-          <div className={styles.menu}>
-            <PzElement element={elem} />
-          </div>
-        ))}
+        <div className={styles.menu}>
+          <button onClick={prev}>&#8249;</button>
+          {items.map((elem, index) => (
+            <PzElement key={index} element={elem} />
+          ))}
+          <button onClick={next}>&#8250;</button>
+        </div>
       </div>
     </div>
   );
