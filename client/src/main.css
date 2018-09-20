@@ -1,6 +1,6 @@
 :local(.appContainer) {
-    font-family: "Amazon Ember", Arial, sans-serif; 
-    padding: 1vmin;  
+    font-family: 'Lato', sans-serif; 
+    padding: 3vmin;  
 }
 
 :local(.title) {
@@ -12,17 +12,15 @@
 }
 
 :local(.child) {
-    width: 6.25 vmin;  
     padding-left: 2vmin;
     padding-right: 2vmin;
-
 }
 
 :local(.text) {
     color: #0066c0;
-    font-size: 13px;
-    line-height: 19px;
-    width: 160px;   
+    font-size: 1.75vmin;
+    line-height: 2.75vmin;
+    width: 16vmin;   
 }
 
 :local(.text:hover) {
@@ -33,7 +31,7 @@
 
 :local(.review) {
     color: #0066c0;
-    font-size: 13px;
+    font-size: 1.75vmin;
 }
 
 :local(.review:hover) {
@@ -43,7 +41,7 @@
 
 :local(.price) {
     color: #B12704 !important;
-    font-size: 13px;
+    font-size: 1.75vmin;
 }
 
 :local(.price:hover) {
@@ -62,19 +60,19 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     align-content: center;
 }
 
-:local(button) {
-    width: 9vmin;
-    height: 9vmin;
-    border-radius: 2px;
+:local(.button) {
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 0.5vmin;
     border:1px solid rgb(168,171, 176);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset;
+    box-shadow: rgba(255, 255, 255, .6) inset;
     background-color: rgb(241, 243, 245);
-    font-size: 7vmin; 
+    font-size: 2vmin; 
     text-align: center;
     vertical-align: middle;
 }
@@ -87,6 +85,6 @@
 :local(.page){
     float:right;
     padding-right: 3vmin;
-    font-size: 13px!important;
-    line-height: 19px!important;
+    font-size: 1.75vmin;
+    line-height: 2.75vmin;
 }

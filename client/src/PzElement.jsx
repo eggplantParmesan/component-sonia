@@ -56,14 +56,19 @@ const PzElement = props => (
       {lessWord(props.element.productDescription)}
       {'...'}
     </div>
-    <div className={styles.star}>{starMaker(props.element.rating)}
-    </div>
-    <span className={styles.review}>
+    <div className={styles.star}>
+      {starMaker(props.element.rating)}
       {' '}
+      <span className={styles.review}>
       {props.element.reviewNumber}
-    </span>
+      </span>
+    </div>
     <div>
-      <span className={styles.price}>${props.element.price}.00</span>
+      <span className={styles.price}>
+$
+{props.element.price}
+.00
+</span>
       <span>{isPrime(props.element.isPrime)}</span>
     </div>
   </div>

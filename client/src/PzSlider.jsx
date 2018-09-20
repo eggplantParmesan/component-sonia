@@ -16,11 +16,11 @@ const PzSlider = (props) => {
       <h3 className={styles.title}>Customers who bought this item also bought</h3>
       <div className={styles.main}>
         <div className={styles.menu}>
-          <button onClick={prev}>&#8249;</button>
+          <button className={styles.button} onClick={prev}>&#8249;</button>
           {items.map((elem, index) => (
             <PzElement key={index} element={elem} />
           ))}
-          <button onClick={next}>&#8250;</button>
+          <button className={styles.button} onClick={next}>&#8250;</button>
         </div>
       </div>
     </div>
