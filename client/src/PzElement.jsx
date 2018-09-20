@@ -51,7 +51,7 @@ const lessWord = str => ((str.length > 50) ? str.split('').slice(0, 50).join('')
 
 const PzElement = props => (
   <div className={styles.child}>
-    <img alt="product" width="160 vmin" height="160 vmin" className={styles.element} src={props.element.imageURL} />
+    <img alt="product" className={styles.element} src={props.element.imageURL} />
     <div className={styles.text}>
       {lessWord(props.element.productDescription)}
       {'...'}
