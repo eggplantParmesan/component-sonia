@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/products', (req, res) => {
+app.get('/product', (req, res) => {
   controllers.getRelated(req.query.id, (err, results) => {
     if (err) {
       res.status(503).send(err);
