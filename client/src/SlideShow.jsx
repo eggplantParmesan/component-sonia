@@ -16,7 +16,7 @@ class RelatedItems extends Component {
   componentDidMount() {
     const id = window.location.search.replace(/\?id=/, '');
     if (id) {
-      fetch(`/api/relatedItems?id=${id}`)
+      fetch(`/product?id=${id}`)
         .then(response => response.json())
         .then(({ data }) => {
           const listOfItems = [];
