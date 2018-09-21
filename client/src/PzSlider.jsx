@@ -17,9 +17,9 @@ const PzSlider = (props) => {
       <div className={styles.main}>
         <div className={styles.menu}>
           <button className={styles.button} type="submit" onClick={prev}>&#8249;</button>
-          {items.map(elem => (
-            <PzElement element={elem} />
-          ))}
+          {items.map((elem) => {
+            return (<PzElement key={elem.productDescription} element={elem} />);
+          })}
           <button className={styles.button} type="submit" onClick={next}>&#8250;</button>
         </div>
       </div>
