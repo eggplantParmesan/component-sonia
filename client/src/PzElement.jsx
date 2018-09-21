@@ -69,6 +69,7 @@ const PzElement = props => (
         {props.element.price}
       .00
       </span>
+      {' '}
       <span>{isPrime(props.element.isPrime)}</span>
     </div>
   </div>
