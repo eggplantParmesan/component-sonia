@@ -50,10 +50,6 @@
 :local(.price:hover) {
     cursor: pointer;
 }
-:local(.indStar){
-    width: 1px;
-    height: 1px;
-}
 
 :local(.star:hover) {
     cursor: pointer;
