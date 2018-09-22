@@ -1,5 +1,5 @@
 import React from 'react';
-import RelatedItems from './SlideShow.jsx';
+import RelatedItems from './RelatedItems.jsx';
 import styles from './main.css';
 
 const App = () => (

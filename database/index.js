@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password',
+  password: '',
   database: 'slideShowData',
 });
 
@@ -16,14 +16,8 @@ connection.connect((err) => {
 });
 
 const getRelated = (id, callback) => {
-  const queryString = `select * from products where id in (select relatedItemId from similarProducts where productId=${id})`;
-  connection.query(queryString, (err, data) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, data);
-    }
-  });
+  const queryString = `select * from products where id in (select relatedItemId from similarProducts where productId= ?)`;
+  connection.query(queryString, [id], callback);
 };
 
 module.exports.getRelated = getRelated;
