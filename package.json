@@ -12,7 +12,8 @@
     "start": "nodemon server/index.js",
     "test": "jest",
     "lint": "eslint ./",
-    "seed": "node ./database/seed.js"
+    "seed": "node ./database/seed.js",
+    "startprod": "node server/index.js"
   },
   "jest": {
     "verbose": true,

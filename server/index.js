@@ -29,7 +29,7 @@ app.get('/product', (req, res) => {
 });
 
 
-const PORT = process.env.url || 4043;
+const PORT = 4043;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}!`);
 });
