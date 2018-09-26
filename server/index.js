@@ -1,13 +1,13 @@
-require('dotenv').config();
-const cors = require('cors');
 
+require("dotenv").config();
+const cors = require("cors");
 
-const express = require('express');
+const express = require("express");
 
 const app = express();
 app.use(cors());
 
-const controllers = require('../database/index.js');
+const controllers = require("../database/index.js");
 
 app.use(express.static(`${__dirname}/../client/dist`));
 app.use((req, res, next) => {
@@ -15,21 +15,26 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.get('/product', (req, res) => {
+app.get("/product", (req, res) => {
   controllers.getRelated(req.query.id, (err, results) => {
     if (err) {
       res.status(503).send(err);
     } else {
       return res.json({
-        data: results,
+        data: results
       });
     }
   });
 });
 
+// app.delete("/products", (req, res) => {
+//   controllers.deleteItem(req.)
+// });
+
+app.post("/product", (req, res) => {
+  controllers.addItem();
+});
 
 const PORT = 4043;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}!`);
-});
