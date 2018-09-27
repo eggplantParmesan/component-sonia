@@ -26,14 +26,11 @@ app.get("/product", (req, res) => {
   });
 });
 
-app.delete("/destroy", bodyParser(), (req, res) => {
-  controllers.destroyItem(req.body.id, err => {
-    if (err) console.log(err);
-    console.log("item deleted");
-  });
+app.delete("/product", bodyParser(), (req, res) => {
+  controllers.destroyItem(req.body.id);
 });
 
-app.post("/add", bodyParser(), (req, res) => {
+app.post("/product", bodyParser(), (req, res) => {
   var data = Object.assign({ reviewNumber: 0, rating: 0 }, req.body);
   controllers.createItem(data, (err, results) => {
     if (err) {
@@ -45,6 +42,11 @@ app.post("/add", bodyParser(), (req, res) => {
       });
     }
   });
+});
+
+app.put("/product", bodyParser(), (req, res) => {
+  controllers.updateItem(req.body);
+  res.json("updated bro");
 });
 
 const PORT = 4043;

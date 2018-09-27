@@ -20,24 +20,19 @@ const getRelated = (id, callback) => {
   connection.query(queryString, [id], callback);
 };
 
-const destroyItem = (id, callback) => {
-  const queryString = `delete from products where id = ${id}`;
-  console.log(queryString);
-  connection.query(queryString, callback);
+const destroyItem = id => {
+  const queryString = `DELETE FROM products WHERE id = ${id}`;
+  connection.query(queryString);
 };
 
 const createItem = (data, callback) => {
-  console.log(data);
   const queryString = `INSERT INTO products (productName, productDescription, color, price, imageURL, rating, reviewNumber, isPrime)
   VALUES ("${data["productName"]}", "${data["productDescription"]}", "${
     data["color"]
   }", "${data["price"]}", "${data["imageURL"]}", ${data["rating"]}, ${
     data["reviewNumber"]
   }, ${data["isPrime"]})`;
-  connection.query(queryString, (err, res) => {
-    if (err) callback(err);
-    callback(null, res);
-  });
+  connection.query(queryString);
 };
 
 const insertRelated = callback => {
@@ -55,6 +50,14 @@ const insertRelated = callback => {
       }
     );
   }
+};
+
+const updateItem = data => {
+  var queryString = `UPDATE products SET productName="${
+    data["productName"]
+  }", productDescription="${data["productDescription"]}"
+  WHERE id=${data["id"]}`;
+  connection.query(queryString);
 };
 
 // function picks a random image from S3
@@ -119,5 +122,6 @@ module.exports = {
   getRelated,
   destroyItem,
   createItem,
-  insertRelated
+  insertRelated,
+  updateItem
 };
