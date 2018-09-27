@@ -1,12 +1,11 @@
-
 require("dotenv").config();
 const cors = require("cors");
-
 const express = require("express");
-
+const bodyParser = require("body-parser");
 const app = express();
 app.use(cors());
-
+//app.use(bodyParser.json());
+//bodyParser.urlencoded({ extended: true });
 const controllers = require("../database/index.js");
 
 app.use(express.static(`${__dirname}/../client/dist`));
@@ -27,14 +26,28 @@ app.get("/product", (req, res) => {
   });
 });
 
-// app.delete("/products", (req, res) => {
-//   controllers.deleteItem(req.)
-// });
+app.delete("/destroy", bodyParser(), (req, res) => {
+  controllers.destroyItem(req.body.id, err => {
+    if (err) console.log(err);
+    console.log("item deleted");
+  });
+});
 
-app.post("/product", (req, res) => {
-  controllers.addItem();
+app.post("/add", bodyParser(), (req, res) => {
+  var data = Object.assign({ reviewNumber: 0, rating: 0 }, req.body);
+  controllers.createItem(data, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      controllers.insertRelated((err, results) => {
+        if (err) return console.log(err);
+        console.log(results);
+      });
+    }
+  });
 });
 
 const PORT = 4043;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}!`);
+});

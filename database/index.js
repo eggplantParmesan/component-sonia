@@ -20,13 +20,41 @@ const getRelated = (id, callback) => {
   connection.query(queryString, [id], callback);
 };
 
-const deleteItem = (id, callback) => {
-  const queryString = `delete from products where id = ?`;
-  connection.query(queryString, [id], callback);
+const destroyItem = (id, callback) => {
+  const queryString = `delete from products where id = ${id}`;
+  console.log(queryString);
+  connection.query(queryString, callback);
 };
 
-const createItem = () => {
-  const queryString = `insert products `;
+const createItem = (data, callback) => {
+  console.log(data);
+  const queryString = `INSERT INTO products (productName, productDescription, color, price, imageURL, rating, reviewNumber, isPrime)
+  VALUES ("${data["productName"]}", "${data["productDescription"]}", "${
+    data["color"]
+  }", "${data["price"]}", "${data["imageURL"]}", ${data["rating"]}, ${
+    data["reviewNumber"]
+  }, ${data["isPrime"]})`;
+  connection.query(queryString, (err, res) => {
+    if (err) callback(err);
+    callback(null, res);
+  });
+};
+
+const insertRelated = callback => {
+  const amountRelatedItems = Math.random() * 38 + 6;
+  for (var i = 0; i < amountRelatedItems; i += 1) {
+    const relatedTo = Math.random() * 100 + 1;
+    connection.query(
+      `INSERT INTO similarProducts (productId, relatedItemId) values (${i}, ${relatedTo})`,
+      (err, res) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, res);
+        }
+      }
+    );
+  }
 };
 
 // function picks a random image from S3
@@ -89,5 +117,7 @@ const getRelatedItems = () => {
 
 module.exports = {
   getRelated,
-  deleteItem
+  destroyItem,
+  createItem,
+  insertRelated
 };
