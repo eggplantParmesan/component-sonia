@@ -7,7 +7,7 @@ module.exports = {
     fetch: (req, res) => {
         const id = req.params.id;
         client.query(
-            `select * from products INNER JOIN similar_products on similar_products.product_id = products.id where similar_products.product_id=${id}`,
+            `SELECT * FROM products INNER JOIN similar_products ON similar_products.related_id = products.id WHERE similar_products.product_id = ${id}`,
             (err, results) => {
                 if (err) return console.log(err);
                 res.json(results.rows);
