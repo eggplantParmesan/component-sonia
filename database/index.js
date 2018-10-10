@@ -29,9 +29,9 @@ const createItem = (data, callback) => {
   const queryString = `INSERT INTO products (productName, productDescription, color, price, imageURL, rating, reviewNumber, isPrime)
   VALUES ("${data["productName"]}", "${data["productDescription"]}", "${
     data["color"]
-  }", "${data["price"]}", "${data["imageURL"]}", ${data["rating"]}, ${
+    }", "${data["price"]}", "${data["imageURL"]}", ${data["rating"]}, ${
     data["reviewNumber"]
-  }, ${data["isPrime"]})`;
+    }, ${data["isPrime"]})`;
   connection.query(queryString);
 };
 
@@ -55,7 +55,7 @@ const insertRelated = callback => {
 const updateItem = data => {
   var queryString = `UPDATE products SET productName="${
     data["productName"]
-  }", productDescription="${data["productDescription"]}"
+    }", productDescription="${data["productDescription"]}"
   WHERE id=${data["id"]}`;
   connection.query(queryString);
 };
@@ -84,7 +84,7 @@ function getRandomRating() {
 }
 
 const DATA_NUMBER = 100;
-const createTable = function() {
+const createTable = function () {
   for (let i = 0; i < DATA_NUMBER; i += 1) {
     const randomName = faker.commerce.productName();
     const randomDescription = faker.lorem.sentences();
