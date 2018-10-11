@@ -1,7 +1,7 @@
 // require("../database/index.js"); // MySql
 const client = require("../database/postgreSQL.js"); // postgreSQL
 // const client = require("../database/cassandra.js"); //cassandraDB
-
+const redisConnection = require("../server/redis.js");
 module.exports = {
     //	======= Cassandra DB
     fetch: (req, res) => {
@@ -10,6 +10,7 @@ module.exports = {
             `SELECT * FROM products INNER JOIN similar_products ON similar_products.related_id = products.id WHERE similar_products.product_id = ${id}`,
             (err, results) => {
                 if (err) return console.log(err);
+                redisConnection.setex(id, 120000, JSON.stringify(results.rows))
                 res.json(results.rows);
             }
         );
