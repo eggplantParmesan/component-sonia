@@ -9,11 +9,11 @@ config:
 
 scenarios:
   - flow:
-    - loop: 
-      - get:
-          url: "/product/{{ $randomNumber(1, 10000) }}"
-      - get:
-          url: "/product/{{ $randomNumber(10000, 20000) }}"
-      - get:
-          url: "/product/{{ $randomNumber(20000, 30000) }}"
-        count: 500
+      - loop:
+          - get:
+              url: "/product/{{ $randomNumber(1, 1000) }}"
+            # - get:
+            #     url: "/product/{{ $randomNumber(10000, 20000) }}"
+            # - get:
+            #     url: "/product/{{ $randomNumber(20000, 30000) }}"
+            count: 500
