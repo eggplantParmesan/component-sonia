@@ -1,9 +1,9 @@
 {
   "name": "amazon",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "version": "0.0.1",
+  "description": "sdc",
+  "author": "sdc-eggplant",
+  "license": "123",
   "engines": {
     "node": ">=6.13.0"
   },
