@@ -1,5 +1,5 @@
 require("newrelic");
-require("dotenv").config();
+// require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 // });
 
 const postgres = require("../database/postgreSQL.js");
-postgres.connect(function(err) {
+postgres.connect(function (err) {
   if (err) return console.log(err);
   console.log("postgres connected");
 });
