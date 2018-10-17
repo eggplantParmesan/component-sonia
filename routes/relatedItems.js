@@ -5,7 +5,7 @@ const client = require("../server/redis.js");
 
 function cache(req, res, next) {
   const org = req.params.id;
-  client.get(org, function(err, data) {
+  client.get(org, function (err, data) {
     if (err) throw err;
     if (data != null) {
       res.send(JSON.parse(data));
